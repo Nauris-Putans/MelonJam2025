@@ -5,18 +5,19 @@ const SPEED = 120.0
 const JUMP_VELOCITY = -300.0
 
 var is_interaction_enabled = false;
+var is_in_mask_anim = false;
 var interactible_type: String;
 var is_mask_toggled = false;
 
 @onready var tile_map_layer: TileMapLayer = $"../TileMapLayer"
-@onready var tile_map_layer_2: TileMapLayer = $"../TileMapLayer2"
+@onready var tile_map_layer_2: TileMapLayer = $"../TileMapLayer2_emo"
 @onready var color_rect: ColorRect = $Camera2D/ColorRect
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() && !is_in_mask_anim:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
@@ -77,7 +78,8 @@ func _walk():
 		animated_sprite_2d.play("walk");
 		
 func _toggle_overlay():
-	var tween := create_tween()
+	is_in_mask_anim = true;
+	var tween := create_tween();
 
 	# Fade in (alpha 0 → 1)
 	tween.tween_property(
@@ -92,11 +94,13 @@ func _toggle_overlay():
 
 	# Toggle tile maps AFTER screen is dark
 	if is_mask_toggled:
-		tile_map_layer.hide()
-		tile_map_layer_2.show()
+		tile_map_layer.hide();
+		tile_map_layer_2.show();
+		self.collision_mask = 2;
 	else:
-		tile_map_layer.show()
-		tile_map_layer_2.hide()
+		tile_map_layer.show();
+		tile_map_layer_2.hide();
+		self.collision_mask = 1;
 
 	# New tween for fade out
 	var tween_out := create_tween()
@@ -106,5 +110,6 @@ func _toggle_overlay():
 		0.0,
 		0.5
 	)
+	is_in_mask_anim = false;
 
 	
