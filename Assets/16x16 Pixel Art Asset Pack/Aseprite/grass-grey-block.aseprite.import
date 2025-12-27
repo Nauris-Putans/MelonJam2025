@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dlw47l5c1cbtw"
+path="res://.godot/imported/grass-grey-block.aseprite-08035f473208604d18a8ba62155c82e9.res"
+
+[deps]
+
+source_file="res://Assets/16x16 Pixel Art Asset Pack/Aseprite/grass-grey-block.aseprite"
+dest_files=["res://.godot/imported/grass-grey-block.aseprite-08035f473208604d18a8ba62155c82e9.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bqpvvesvox7pi"
+path="res://.godot/imported/spike.aseprite-81053bd67d2f4c8011a6cb485ad9627a.res"
+
+[deps]
+
+source_file="res://Assets/16x16 Pixel Art Asset Pack/Aseprite/spike.aseprite"
+dest_files=["res://.godot/imported/spike.aseprite-81053bd67d2f4c8011a6cb485ad9627a.res"]
+
+[params]
+

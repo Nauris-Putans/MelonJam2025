@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ctkr3gpor46ku"
+path="res://.godot/imported/brown-wall.aseprite-fc4e16a8973a7359fbb929e67ecfa2a6.res"
+
+[deps]
+
+source_file="res://Assets/16x16 Pixel Art Asset Pack/Aseprite/brown-wall.aseprite"
+dest_files=["res://.godot/imported/brown-wall.aseprite-fc4e16a8973a7359fbb929e67ecfa2a6.res"]
+
+[params]
+

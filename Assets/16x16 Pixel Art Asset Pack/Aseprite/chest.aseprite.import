@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://hrb3a2ikat28"
+path="res://.godot/imported/chest.aseprite-5df164fbc509dd98dbe8bce73d894d6f.res"
+
+[deps]
+
+source_file="res://Assets/16x16 Pixel Art Asset Pack/Aseprite/chest.aseprite"
+dest_files=["res://.godot/imported/chest.aseprite-5df164fbc509dd98dbe8bce73d894d6f.res"]
+
+[params]
+

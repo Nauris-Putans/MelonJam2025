@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://g2q51nacx5mm"]
+
+[ext_resource type="Texture2D" uid="uid://d0ujbh2iox2sa" path="res://Assets/16x16 Pixel Art Asset Pack/PNG/bottle.png" id="1_u8qkv"]
+[ext_resource type="Texture2D" uid="uid://cbck5t0opadlr" path="res://Assets/Characters/villager_female.png" id="2_3g2aj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wg47"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tudu8"]
+atlas = ExtResource("1_u8qkv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snvpr"]
+atlas = ExtResource("2_3g2aj")
+region = Rect2(0, 0, 16, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auvmn"]
+atlas = ExtResource("2_3g2aj")
+region = Rect2(0, 66, 16, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p30wa"]
+atlas = ExtResource("2_3g2aj")
+region = Rect2(0, 33, 16, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5lts"]
+atlas = ExtResource("2_3g2aj")
+region = Rect2(0, 99, 16, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lirgn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tudu8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snvpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auvmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p30wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5lts")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="InteractionTest" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0wg47")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_lirgn")
+autoplay = "default"

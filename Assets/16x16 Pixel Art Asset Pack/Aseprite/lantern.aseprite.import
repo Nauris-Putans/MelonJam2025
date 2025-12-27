@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dqxoje0sshlil"
+path="res://.godot/imported/lantern.aseprite-e83afb9ae4f771d786142db40ba51861.res"
+
+[deps]
+
+source_file="res://Assets/16x16 Pixel Art Asset Pack/Aseprite/lantern.aseprite"
+dest_files=["res://.godot/imported/lantern.aseprite-e83afb9ae4f771d786142db40ba51861.res"]
+
+[params]
+
