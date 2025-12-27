@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://g2q51nacx5mm"]
+[gd_scene load_steps=11 format=3 uid="uid://g2q51nacx5mm"]
 
+[ext_resource type="Script" uid="uid://cetlhylnil201" path="res://Scripts/interaction.gd" id="1_3g2aj"]
 [ext_resource type="Texture2D" uid="uid://d0ujbh2iox2sa" path="res://Assets/16x16 Pixel Art Asset Pack/PNG/bottle.png" id="1_u8qkv"]
 [ext_resource type="Texture2D" uid="uid://cbck5t0opadlr" path="res://Assets/Characters/villager_female.png" id="2_3g2aj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wg47"]
-size = Vector2(20, 25)
+size = Vector2(50, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tudu8"]
 atlas = ExtResource("1_u8qkv")
@@ -55,9 +56,13 @@ animations = [{
 }]
 
 [node name="InteractionTest" type="Area2D"]
+collision_mask = 2
+collision_priority = 6.0
+priority = 6
+script = ExtResource("1_3g2aj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2.5)
+position = Vector2(-1, -11)
 shape = SubResource("RectangleShape2D_0wg47")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

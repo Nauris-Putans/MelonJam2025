@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://drjeuhocxnjgk"]
+
+[ext_resource type="Texture2D" uid="uid://ds7r6n0a42rem" path="res://Assets/Tiles/platform-asset.png" id="1_cxd8v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cxd8v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxd8v"]
+atlas = ExtResource("1_cxd8v")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_68ye7"]
+radius = 8.0
+height = 64.0
+
+[node name="StaticBody2D" type="AnimatableBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_cxd8v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_cxd8v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_68ye7")
