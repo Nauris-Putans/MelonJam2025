@@ -1,0 +1,259 @@
+[gd_scene load_steps=21 format=3 uid="uid://djfp8r78lixmp"]
+
+[ext_resource type="Texture2D" uid="uid://bwcqil57727h" path="res://Assets/background/night1/1.png" id="1_28flt"]
+[ext_resource type="Theme" uid="uid://2d5kp8rfe5xb" path="res://Assets/UI/mask_theme.tres" id="1_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://bs41vcdclkim4" path="res://Assets/background/night1/2.png" id="2_n45e2"]
+[ext_resource type="Script" uid="uid://p33aykq0qr1i" path="res://Scripts/main_menu.gd" id="2_yhxw7"]
+[ext_resource type="Script" uid="uid://bkqb3jb4ogsxu" path="res://Scripts/cloud_layer.gd" id="3_opfnp"]
+[ext_resource type="Texture2D" uid="uid://cpviaotppjia3" path="res://Assets/background/night1/3.png" id="4_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://b4il6qqtx45fx" path="res://Assets/background/night1/4.png" id="5_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://10xv2pw5r056" path="res://Assets/UI/ui-assets.png" id="7_yhxw7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trj04"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("7_yhxw7")
+region_rect = Rect2(320, 32, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cp0ys"]
+texture = ExtResource("7_yhxw7")
+region_rect = Rect2(352, 32, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vr1f0"]
+texture = ExtResource("7_yhxw7")
+region_rect = Rect2(320, 128, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1dhk"]
+texture = ExtResource("7_yhxw7")
+region_rect = Rect2(352, 128, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5egv6"]
+texture = ExtResource("7_yhxw7")
+region_rect = Rect2(320, 96, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vtepg"]
+texture = ExtResource("7_yhxw7")
+region_rect = Rect2(352, 96, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_16hvj"]
+texture = ExtResource("7_yhxw7")
+region_rect = Rect2(384, 64, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8dnnj"]
+texture = ExtResource("7_yhxw7")
+region_rect = Rect2(416, 64, 32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yhxw7"]
+font_size = 120
+font_color = Color(0.49411765, 0.76862746, 0.75686276, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_yhxw7"]
+resource_name = "jumpy"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.33166668, 0, 0.335, 0),
+"times": PackedFloat32Array(0, 1.99)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(196, -0.25, 0, 0.25, 0, 212.75671, -0.33166668, -2.8191667, 0.335, 2.8475),
+"times": PackedFloat32Array(0, 1.99)
+}
+
+[sub_resource type="Animation" id="Animation_trj04"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(196, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_16hvj"]
+_data = {
+&"RESET": SubResource("Animation_trj04"),
+&"jumpy": SubResource("Animation_yhxw7")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cp0ys")
+script = ExtResource("2_yhxw7")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(543, 320)
+scale = Vector2(2, 2)
+texture = ExtResource("1_28flt")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(499, 320)
+scale = Vector2(2, 2)
+texture = ExtResource("2_n45e2")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+script = ExtResource("3_opfnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(576, 320)
+scale = Vector2(2, 2)
+texture = ExtResource("4_cp0ys")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+script = ExtResource("3_opfnp")
+SPEED = -5
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(576, 320)
+scale = Vector2(2, 2)
+texture = ExtResource("5_yhxw7")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UiAssets" type="Sprite2D" parent="."]
+position = Vector2(-680, 338)
+texture = ExtResource("7_yhxw7")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -151.0
+offset_right = -100.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_trj04")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cp0ys")
+theme_override_styles/hover = SubResource("StyleBoxTexture_trj04")
+
+[node name="SettingButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -151.0
+offset_right = 60.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_vr1f0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t1dhk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vr1f0")
+
+[node name="HelpButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 99.0
+offset_top = -151.0
+offset_right = 219.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_5egv6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vtepg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5egv6")
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -84.0
+offset_top = 20.0
+offset_right = -18.0
+offset_bottom = 86.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_16hvj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8dnnj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_16hvj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -128.0
+offset_bottom = 8.499939
+grow_horizontal = 2
+grow_vertical = 2
+text = "Memory Lane"
+label_settings = SubResource("LabelSettings_yhxw7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+libraries = {
+&"": SubResource("AnimationLibrary_16hvj")
+}
+autoplay = "jumpy"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

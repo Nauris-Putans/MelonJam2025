@@ -807,7 +807,6 @@ shape = SubResource("RectangleShape2D_fkdbe")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 701
-visible = false
 
 [node name="Sprite2D" parent="CanvasLayer" instance=ExtResource("24_vm72l")]
 position = Vector2(298, 471.33334)

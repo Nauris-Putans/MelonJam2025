@@ -1,41 +1,30 @@
 extends CharacterBody2D
 
 
-const SPEED = 120.0
-const JUMP_VELOCITY = -300.0
-
-var is_interaction_enabled = false;
-var is_in_mask_anim = false;
-var interactible_type: String;
+const SPEED = 200.0
+const JUMP_VELOCITY = -440.0
 var is_mask_toggled = false;
-
-@onready var tile_map_layer: TileMapLayer = $"../TileMapLayer"
-@onready var tile_map_layer_2: TileMapLayer = $"../TileMapLayer2_emo"
-@onready var color_rect: ColorRect = $Camera2D/ColorRect
+var is_grabing = false;
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var grab_hand_raycast: RayCast2D = $grabHandRaycast
+@onready var grab_check_raycast: RayCast2D = $grabCheckRaycast
 
 func _physics_process(delta: float) -> void:
+	_check_ledge_grab();
+	
 	# Add the gravity.
-	if not is_on_floor() && !is_in_mask_anim:
+	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() || is_grabing):
+		is_grabing = false;
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("move_left", "move_right")
-	
-	if Input.is_action_just_pressed("interact") && is_interaction_enabled:
-		print_debug("I am gay! but "+ interactible_type);
-	
-	if Input.is_action_just_pressed("toggle_mask"):
-		is_mask_toggled = !is_mask_toggled;
-		_toggle_overlay();
-		
-		print_debug("He is gay!");
 	
 	if direction > 0:
 		animated_sprite_2d.flip_h = false;
@@ -48,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			_walk();
 	else:
-		animated_sprite_2d.play("jump");
+		_jump();
 	
 	if direction:
 		velocity.x = direction * SPEED
@@ -56,14 +45,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-
-func _can_interact(type: String):
-	is_interaction_enabled = true;
-	interactible_type = type;
-
-func _can_not_interact():
-	is_interaction_enabled = false;
-	interactible_type = "null";
 
 func _idle():
 	if is_mask_toggled:
@@ -77,39 +58,23 @@ func _walk():
 	else:
 		animated_sprite_2d.play("walk");
 		
-func _toggle_overlay():
-	is_in_mask_anim = true;
-	var tween := create_tween();
-
-	# Fade in (alpha 0 → 1)
-	tween.tween_property(
-		color_rect,
-		"color:a",
-		1.0,
-		0.5
-	)
-
-	# Wait until fade-in is done
-	await tween.finished
-
-	# Toggle tile maps AFTER screen is dark
+func _jump():
 	if is_mask_toggled:
-		tile_map_layer.hide();
-		tile_map_layer_2.show();
-		self.collision_mask = 2;
+		animated_sprite_2d.play("masked_jump");
 	else:
-		tile_map_layer.show();
-		tile_map_layer_2.hide();
-		self.collision_mask = 1;
+		animated_sprite_2d.play("jump");
 
-	# New tween for fade out
-	var tween_out := create_tween()
-	tween_out.tween_property(
-		color_rect,
-		"color:a",
-		0.0,
-		0.5
-	)
-	is_in_mask_anim = false;
+func toggle_mask():
+	is_mask_toggled = !is_mask_toggled;
 
+func _check_ledge_grab():
+	var is_falling = velocity.y >= 0;
+	var check_hand = not grab_hand_raycast.is_colliding();
+	var check_grab_height = grab_check_raycast.is_colliding();
+	
+	var can_grab = is_falling && check_hand && check_grab_height && not is_grabing && is_on_wall_only();
+	
+	if can_grab:
+		is_grabing = true;
+		animated_sprite_2d.play("grabing_ledge");
 	

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsldscn0cm3ey"
-path="res://.godot/imported/character-asset.png-1d025b90c6e87a05d93db8b5e3f78c90.ctex"
+uid="uid://b4il6qqtx45fx"
+path="res://.godot/imported/4.png-1109f751d8dc0c9bd08152f0a60ce2c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/character-asset.png"
-dest_files=["res://.godot/imported/character-asset.png-1d025b90c6e87a05d93db8b5e3f78c90.ctex"]
+source_file="res://Assets/background/night1/4.png"
+dest_files=["res://.godot/imported/4.png-1109f751d8dc0c9bd08152f0a60ce2c4.ctex"]
 
 [params]
 

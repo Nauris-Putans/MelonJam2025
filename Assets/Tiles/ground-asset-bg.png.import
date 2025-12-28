@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsldscn0cm3ey"
-path="res://.godot/imported/character-asset.png-1d025b90c6e87a05d93db8b5e3f78c90.ctex"
+uid="uid://c2vy1yma4wvtn"
+path="res://.godot/imported/ground-asset-bg.png-f275e5a186e078a90b5a4362ca1e1909.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/character-asset.png"
-dest_files=["res://.godot/imported/character-asset.png-1d025b90c6e87a05d93db8b5e3f78c90.ctex"]
+source_file="res://Assets/Tiles/ground-asset-bg.png"
+dest_files=["res://.godot/imported/ground-asset-bg.png-f275e5a186e078a90b5a4362ca1e1909.ctex"]
 
 [params]
 
