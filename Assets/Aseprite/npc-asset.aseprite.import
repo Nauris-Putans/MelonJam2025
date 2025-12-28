@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b48m6iyjrsre4"
+path="res://.godot/imported/npc-asset.aseprite-48214fd89768a49b7d602f383e927f9b.res"
+
+[deps]
+
+source_file="res://Assets/Aseprite/npc-asset.aseprite"
+dest_files=["res://.godot/imported/npc-asset.aseprite-48214fd89768a49b7d602f383e927f9b.res"]
+
+[params]
+

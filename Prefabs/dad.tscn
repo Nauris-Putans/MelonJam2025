@@ -1,0 +1,191 @@
+[gd_scene load_steps=13 format=3 uid="uid://bbvwpx33gutwg"]
+
+[ext_resource type="Script" uid="uid://bkfxeywju5ypk" path="res://Scripts/dad.gd" id="1_085hp"]
+[ext_resource type="Texture2D" uid="uid://d3lvgwse86anp" path="res://Assets/Characters/NPC/Layer 1.png" id="1_hsh0k"]
+[ext_resource type="PackedScene" uid="uid://ce2qx1gtu7dsi" path="res://Prefabs/interactable.tscn" id="2_224wv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_224wv"]
+size = Vector2(8, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_085hp"]
+atlas = ExtResource("1_hsh0k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gp0d"]
+atlas = ExtResource("1_hsh0k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1d15l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_085hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gp0d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_085hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gp0d")
+}],
+"loop": true,
+"name": &"default_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_085hp"]
+radius = 28.01785
+
+[sub_resource type="LabelSettings" id="LabelSettings_085hp"]
+line_spacing = 5.0
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_2gp0d"]
+resource_name = "new_animation"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.67, 2.0098014, 3, 3.5056548, 4.3, 6.3057384, 6.9557385, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.5566667, 0.5566667, 1.0, 1.0, 0.0, 0.5420914, 0.7177672, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 3.5056548, 4.3, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Oh Son! you found my memory mask!
+It reminds me old times...", "Oh Son! you found my memory mask!
+It reminds me old times...", "Oh Son! you found my memory mask!
+It reminds me old times...", "It is getting late! Time to sleep...", "It is getting late! Time to sleep..."]
+}
+
+[sub_resource type="Animation" id="Animation_1d15l"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5883914, 2.0043988, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.5294638, 0.5294638, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Oh Son! you found my memory mask!
+It reminds me old times..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15ipd"]
+_data = {
+&"RESET": SubResource("Animation_1d15l"),
+&"new_animation": SubResource("Animation_2gp0d")
+}
+
+[node name="dada" type="CharacterBody2D"]
+script = ExtResource("1_085hp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_224wv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1d15l")
+animation = &"default_1"
+autoplay = "default"
+flip_h = true
+
+[node name="Interactable" parent="." instance=ExtResource("2_224wv")]
+interact_name = "[E] Sex Dad"
+is_interactable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CircleShape2D_085hp")
+
+[node name="hello" type="Label" parent="."]
+z_index = 6
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -33.0
+offset_right = 178.36841
+offset_bottom = 4.894745
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.475, 0.475)
+size_flags_horizontal = 3
+text = "Oh Son! you found my memory mask!
+It reminds me old times..."
+label_settings = SubResource("LabelSettings_085hp")
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hello"]
+libraries = {
+&"": SubResource("AnimationLibrary_15ipd")
+}
+
+[node name="sleep" type="Label" parent="."]
+visible = false
+z_index = 6
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -33.0
+offset_right = 178.36841
+offset_bottom = 4.8947144
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.475, 0.475)
+size_flags_horizontal = 3
+text = "Oh Son! you found my memory mask!
+It reminds me old times..."
+label_settings = SubResource("LabelSettings_085hp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Chat" type="Node" parent="."]

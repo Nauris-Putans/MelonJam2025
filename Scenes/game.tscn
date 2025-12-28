@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=4 uid="uid://u6ayw2wukdhs"]
+[gd_scene load_steps=89 format=4 uid="uid://u6ayw2wukdhs"]
 
 [ext_resource type="Script" uid="uid://b2uytm0jnf8x8" path="res://Scripts/game_manager.gd" id="1_85qyi"]
 [ext_resource type="PackedScene" uid="uid://b75x50l03mdiv" path="res://Prefabs/player.tscn" id="1_ebmjs"]
@@ -22,9 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://cp5xe4bwa2hxn" path="res://Prefabs/wooden_platform.tscn" id="19_7nbq1"]
 [ext_resource type="Texture2D" uid="uid://cf4ka7lslfhd4" path="res://Assets/House/house-asset.png" id="21_22asu"]
 [ext_resource type="PackedScene" uid="uid://bbn8xmdepbvwc" path="res://Prefabs/wooden_platform_emo.tscn" id="21_exi56"]
+[ext_resource type="PackedScene" uid="uid://bbvwpx33gutwg" path="res://Prefabs/dad.tscn" id="22_fkdbe"]
 [ext_resource type="Script" uid="uid://bqtud6ctnkj8o" path="res://Scripts/home_trigger.gd" id="22_mg4q0"]
 [ext_resource type="PackedScene" uid="uid://ce2qx1gtu7dsi" path="res://Prefabs/interactable.tscn" id="23_vm72l"]
-[ext_resource type="PackedScene" uid="uid://bqxlym01rvdax" path="res://Prefabs/mouse.tscn" id="24_vm72l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_exi56"]
 shader = ExtResource("3_7nbq1")
@@ -338,7 +338,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_exi56"]
 resource_name = "new_animation"
-length = 5.0
+length = 8.5
 loop_mode = 2
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -347,9 +347,9 @@ tracks/0/path = NodePath(".:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 2, 2),
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
 "points": PackedFloat32Array(2356, -0.25, 0, 0.25, 0, 2356, -0.25, 0, 0.25, 0, 2356, -0.6783334, 0, 0, 0, 2356, -0.083333336, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.43, 4.5, 5)
+"times": PackedFloat32Array(0, 0.43, 8, 8.5)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -358,9 +358,9 @@ tracks/1/path = NodePath(".:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 2, 2),
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
 "points": PackedFloat32Array(-1340, -0.25, 0, 0.25, 0, -1340, -0.25, 0, 0.25, 0, -1848, -0.6783334, 84.66667, 0, 0, -1848, -0.083333336, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.43, 4.5, 5)
+"times": PackedFloat32Array(0, 0.43, 8, 8.5)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mg4q0"]
@@ -551,7 +551,7 @@ texture_region_size = Vector2i(32, 32)
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1, -9, 16, -9, 16, 9, -1, 9)
 5:1/0 = 0
-5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -9, 16, -9, 16, 9, -16, 9)
 6:1/0 = 0
 6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -9, 1, -9, 1, 9, -16, 9)
 7:1/0 = 0
@@ -717,6 +717,8 @@ radius = 106.04244
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkdbe"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_22asu"]
+
 [node name="Game" type="Node"]
 script = ExtResource("1_85qyi")
 
@@ -724,7 +726,7 @@ script = ExtResource("1_85qyi")
 
 [node name="Player" parent="Game" instance=ExtResource("1_ebmjs")]
 z_index = 5
-position = Vector2(2521, -1885)
+position = Vector2(2146, -55)
 collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Game/Player"]
@@ -775,8 +777,11 @@ libraries = {
 }
 autoplay = "new_animation"
 
+[node name="Dada" parent="Game/MemoryWorld" instance=ExtResource("22_fkdbe")]
+position = Vector2(2345, -32)
+scale = Vector2(2, 2)
+
 [node name="EmoWorld" type="Node2D" parent="Game"]
-visible = false
 
 [node name="TileMapLayer_backgrouhnd" type="TileMapLayer" parent="Game/EmoWorld"]
 material = SubResource("ShaderMaterial_exi56")
@@ -826,11 +831,10 @@ shape = SubResource("CircleShape2D_22asu")
 position = Vector2(31, 10)
 shape = SubResource("RectangleShape2D_fkdbe")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 701
-visible = false
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Sprite2D" parent="CanvasLayer" instance=ExtResource("24_vm72l")]
-position = Vector2(298, 471.33334)
-scale = Vector2(49.666664, 49.666664)
-script = null
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(576, 320)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = SubResource("CompressedTexture2D_22asu")
