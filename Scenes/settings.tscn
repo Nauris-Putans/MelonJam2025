@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://hufx4yury51t"]
+
+[ext_resource type="Script" uid="uid://b4vqoxyc76y2k" path="res://Scripts/settings.gd" id="1_4geyq"]
+[ext_resource type="Theme" uid="uid://2d5kp8rfe5xb" path="res://Assets/UI/mask_theme.tres" id="2_i44u3"]
+[ext_resource type="Texture2D" uid="uid://cl3wwub4pok5v" path="res://Assets/UI/ui-assets.png" id="3_lhmql"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aaqfp"]
+texture = ExtResource("3_lhmql")
+region_rect = Rect2(384, 64, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j2dne"]
+texture = ExtResource("3_lhmql")
+region_rect = Rect2(416, 64, 32, 32)
+
+[node name="Settings" type="Node"]
+script = ExtResource("1_4geyq")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_i44u3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 300
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 34
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_i44u3")
+min_value = -20.0
+max_value = 20.0
+
+[node name="CheckBox" type="CheckBox" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Mute"
+
+[node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -84.0
+offset_top = 20.0
+offset_right = -18.0
+offset_bottom = 86.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_aaqfp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_j2dne")
+theme_override_styles/hover = SubResource("StyleBoxTexture_aaqfp")
+
+[connection signal="value_changed" from="Control/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="Control/MarginContainer/Panel/MarginContainer/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]

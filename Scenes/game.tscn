@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://jadgofmdnix7"]
+[gd_scene load_steps=81 format=4 uid="uid://jadgofmdnix7"]
 
 [ext_resource type="Script" uid="uid://dbx3ra8awrjy1" path="res://Scenes/game.gd" id="1_85qyi"]
 [ext_resource type="PackedScene" uid="uid://b75x50l03mdiv" path="res://Prefabs/player.tscn" id="1_ebmjs"]
@@ -15,8 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://docswhq1yhhk7" path="res://Assets/UI/cursor-click-asset.png" id="22_7t8sx"]
 [ext_resource type="PackedScene" uid="uid://bbvwpx33gutwg" path="res://Prefabs/dad.tscn" id="22_fkdbe"]
 [ext_resource type="Script" uid="uid://bqtud6ctnkj8o" path="res://Scripts/home_trigger.gd" id="22_mg4q0"]
+[ext_resource type="Texture2D" uid="uid://cl3wwub4pok5v" path="res://Assets/UI/ui-assets.png" id="22_vm72l"]
 [ext_resource type="Texture2D" uid="uid://88j1v32r1m45" path="res://Assets/background/Sprite-0001.png" id="23_8m3t6"]
 [ext_resource type="PackedScene" uid="uid://ce2qx1gtu7dsi" path="res://Prefabs/interactable.tscn" id="23_vm72l"]
+[ext_resource type="PackedScene" uid="uid://hufx4yury51t" path="res://Scenes/settings.tscn" id="24_22asu"]
 [ext_resource type="Texture2D" uid="uid://bekl03ud41l33" path="res://Assets/background/Enjl-Starry Space Background/background_1.png" id="26_fkdbe"]
 [ext_resource type="Texture2D" uid="uid://5nf41b2qrkp" path="res://Assets/background/Enjl-Starry Space Background/background_2.png" id="27_mucmn"]
 [ext_resource type="Texture2D" uid="uid://cbtqd2qde0nxp" path="res://Assets/background/Enjl-Starry Space Background/background_3.png" id="28_8m3t6"]
@@ -572,6 +574,14 @@ animations = [{
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fkdbe"]
+texture = ExtResource("22_vm72l")
+region_rect = Rect2(320, 128, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81klo"]
+texture = ExtResource("22_vm72l")
+region_rect = Rect2(352, 128, 32, 32)
+
 [sub_resource type="Animation" id="Animation_vm72l"]
 resource_name = "mask_tutorial"
 length = 5.0
@@ -992,7 +1002,23 @@ rotation = -2.2417192
 scale = Vector2(3.9117646, 3.9117646)
 texture = ExtResource("22_7t8sx")
 
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("24_22asu")]
+
+[node name="SettingButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -87.0
+offset_bottom = 87.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_fkdbe")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_81klo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fkdbe")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_fkdbe")
 }
+
+[connection signal="pressed" from="CanvasLayer/SettingButton" to="." method="_on_setting_button_pressed"]
