@@ -5,6 +5,7 @@ extends "res://Scripts/game_manager.gd"
 @onready var memory_world_parallax_background_2: ParallaxBackground = $Game/MemoryWorld/ParallaxBackground2
 @onready var destroyed_world: Node2D = $Game/EmoWorld
 @onready var destroyed_world_parallax_background: ParallaxBackground = $Game/EmoWorld/ParallaxBackground
+@onready var settings: Node = $CanvasLayer/Settings
 
 
 func _ready() -> void:
@@ -13,3 +14,7 @@ func _ready() -> void:
 	parallax_background_2 = memory_world_parallax_background_2
 	parallax_background = destroyed_world_parallax_background
 	UI_profile = profile;
+
+
+func _on_setting_button_pressed() -> void:
+	settings.open_settings();

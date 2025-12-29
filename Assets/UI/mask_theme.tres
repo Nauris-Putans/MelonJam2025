@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://2d5kp8rfe5xb"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://2d5kp8rfe5xb"]
 
 [ext_resource type="Texture2D" uid="uid://cl3wwub4pok5v" path="res://Assets/UI/ui-assets.png" id="1_epoi0"]
 [ext_resource type="FontFile" uid="uid://ds6kujatae6ab" path="res://Assets/Fonts/ByteBounce.ttf" id="2_ssuhe"]
@@ -21,6 +21,36 @@ texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 region_rect = Rect2(352, 0, 32, 32)
 
+[sub_resource type="DPITexture" id="DPITexture_epoi0"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_ssuhe"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".37\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_52n7j"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_1cdbl"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"4\" height=\"8\"><path fill=\"#fff\" fill-opacity=\".25\" d=\"M1 0h2v16H1z\"/></svg>
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ssuhe"]
+texture = ExtResource("1_epoi0")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(321, 166, 62, 3)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_epoi0"]
+texture = ExtResource("1_epoi0")
+texture_margin_left = 9.0
+texture_margin_top = 9.0
+texture_margin_right = 9.0
+texture_margin_bottom = 9.0
+region_rect = Rect2(0, 0, 320, 180)
+
 [resource]
 default_font = ExtResource("2_ssuhe")
 default_font_size = 24
@@ -28,3 +58,13 @@ Button/styles/focus = SubResource("StyleBoxEmpty_epoi0")
 Button/styles/hover = SubResource("StyleBoxTexture_52n7j")
 Button/styles/normal = SubResource("StyleBoxTexture_52n7j")
 Button/styles/pressed = SubResource("StyleBoxTexture_1cdbl")
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/constants/tick_offset = 0
+HSlider/icons/grabber = SubResource("DPITexture_epoi0")
+HSlider/icons/grabber_disabled = SubResource("DPITexture_ssuhe")
+HSlider/icons/grabber_highlight = SubResource("DPITexture_52n7j")
+HSlider/icons/tick = SubResource("DPITexture_1cdbl")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_ssuhe")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_ssuhe")
+Panel/styles/panel = SubResource("StyleBoxTexture_epoi0")
