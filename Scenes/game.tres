@@ -1,0 +1,314 @@
+[gd_resource type="TileSet" load_steps=37 format=3 uid="uid://da74eruyegj1d"]
+
+[ext_resource type="Texture2D" uid="uid://cf4ka7lslfhd4" path="res://Assets/House/house-asset.png" id="1_v3wud"]
+[ext_resource type="Texture2D" uid="uid://bvnmt1q63fwu1" path="res://Assets/Level2/Layer 1.png" id="2_h4wv5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_titue"]
+load_path = "res://.godot/imported/bottle.png-f7f4373c70c18c23eff59f2ddad2f185.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tt7mg"]
+texture = SubResource("CompressedTexture2D_titue")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_htg8p"]
+load_path = "res://.godot/imported/brown-wall.png-f95007a3418c170f7feec22328908f08.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jcvim"]
+texture = SubResource("CompressedTexture2D_htg8p")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fnkle"]
+load_path = "res://.godot/imported/spike.png-9e1b1e092f896536353bd16620c5c9bc.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wr3wg"]
+texture = SubResource("CompressedTexture2D_fnkle")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 3.50494, 0.63726425, -0.95589256, 16, 4.4608307, 16, 16, -16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6xvgv"]
+load_path = "res://.godot/imported/torch.png-2d70ef9ed4e560437b6a0181b2ade6d6.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8lpvs"]
+texture = SubResource("CompressedTexture2D_6xvgv")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x6jpx"]
+load_path = "res://.godot/imported/ground-asset.png-60c5a0a32493f65408e874807e855191.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjh24"]
+texture = SubResource("CompressedTexture2D_x6jpx")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k5jl5"]
+load_path = "res://.godot/imported/tree-asset.png-fe9376e203006a781007bb2cf15857e9.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqk4g"]
+texture = SubResource("CompressedTexture2D_k5jl5")
+texture_region_size = Vector2i(32, 32)
+1:3/0 = 0
+4:3/0 = 0
+1:4/0 = 0
+4:4/0 = 0
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/0 = 0
+3:0/size_in_atlas = Vector2i(3, 3)
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmoi6"]
+texture = ExtResource("1_v3wud")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tb272"]
+texture = ExtResource("2_h4wv5")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh6x0"]
+load_path = "res://.godot/imported/platform-asset.png-f23f765f8a984ed20d87a16f0ab530f9.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0obb"]
+texture = SubResource("CompressedTexture2D_fh6x0")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, 16, -8, 16, 8, 7.5, 8, 3, 5, 0, 1)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, 16, -8, 16, 8, 7.5, 8, 3, 5, 0, 1)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8, 16, -8, 16, 8, -16, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8, 16, -8, 16, 8, -16, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8, 0, -8, 0, 1, -3, 5, -7, 8, -16, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -8, 0, -8, 0, 1, -3, 5, -7, 8, -16, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nfavm"]
+load_path = "res://.godot/imported/tree-asset.png-fe9376e203006a781007bb2cf15857e9.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jcn4n"]
+texture = SubResource("CompressedTexture2D_nfavm")
+texture_region_size = Vector2i(32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -16, 8, -16, 8, -4, 16, -4, 16, 0, 12, 0, 8, 3, 8, 16, -8, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -4, 9, -4, 9, 0, -16, 0)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1, -9, 16, -9, 16, 9, -1, 9)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -9, 16, -9, 16, 9, -16, 9)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -9, 1, -9, 1, 9, -16, 9)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -4, 16, -4, 16, 0, -9, 0)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -16, 8, -16, 8, 16, -8, 16, -8, 3, -12, 0, -16, 0, -16, -4, -8, -4)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -4, 16, -4, 16, 0, -9, 0)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -16, 8, -16, 8, 16, -8, 16, -8, 3, -12, 0, -16, 0, -16, -4, -8, -4)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1, -9, 16, -9, 16, 9, -1, 9)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -9, 16, -9, 16, 9, -16, 9)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -9, 1, -9, 1, 9, -16, 9)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+7:4/0 = 0
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -16, 8, -16, 8, 16, -8, 16)
+2:5/0 = 0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -16, 8, -16, 8, 16, -8, 16)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -16, 8, -16, 8, 16, -8, 16)
+4:5/0 = 0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -16, 8, -16, 8, 16, -8, 16)
+6:5/0 = 0
+6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+7:5/0 = 0
+7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+8:5/0 = 0
+8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:6/0 = 0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -16, 8, -16, 8, 16, -8, 16)
+3:6/0 = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -16, 8, -16, 8, 16, -8, 16)
+4:6/0 = 0
+7:6/0 = 0
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/size_in_atlas = Vector2i(3, 3)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:2/size_in_atlas = Vector2i(3, 3)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -16, 8, -16, 8, -4, 16, -4, 16, 0, 12, 0, 8, 3, 8, 16, -16, 16, -8, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -4, 9, -4, 9, 0, -16, 0)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+9:3/0 = 0
+9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+9:4/0 = 0
+9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+8:4/0 = 0
+8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+9:5/0 = 0
+9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+9:6/0 = 0
+9:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+8:6/0 = 0
+8:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:6/0 = 0
+6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l4kai"]
+load_path = "res://.godot/imported/chest.png-944be91d35d53eae118986da2b902f40.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kcoun"]
+texture = SubResource("CompressedTexture2D_l4kai")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jegl3"]
+load_path = "res://.godot/imported/glass-block.png-37e1df34093a2048e938b6f5154ea4ee.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csv17"]
+texture = SubResource("CompressedTexture2D_jegl3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6i05k"]
+load_path = "res://.godot/imported/grass-grey-block.png-4787b2e1a461989be91d5a8b3eea047d.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kfie"]
+texture = SubResource("CompressedTexture2D_6i05k")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sfx3s"]
+load_path = "res://.godot/imported/grass.png-d6c5f4a5d7b0fa4a75d55abcdfd23682.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5qon"]
+texture = SubResource("CompressedTexture2D_sfx3s")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gyste"]
+load_path = "res://.godot/imported/grey-wall.png-56c6225e176317b1914b10c1be597588.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p3b6d"]
+texture = SubResource("CompressedTexture2D_gyste")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bchkn"]
+load_path = "res://.godot/imported/lantern.png-1d9c53edf6f73149a99c550085e54861.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ff75x"]
+texture = SubResource("CompressedTexture2D_bchkn")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a2m5q"]
+load_path = "res://.godot/imported/mushroom.png-e3058f63749bb6ca510078ef24f350fa.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lknxd"]
+texture = SubResource("CompressedTexture2D_a2m5q")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ckj55"]
+load_path = "res://.godot/imported/pile of gold.png-75ff62b2379460b17ad52e28a420861d.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8b24"]
+texture = SubResource("CompressedTexture2D_ckj55")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 3.50494, 0.63726425, -0.95589256, 16, 4.4608307, 16, 16, -16, 16)
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_tt7mg")
+sources/1 = SubResource("TileSetAtlasSource_jcvim")
+sources/2 = SubResource("TileSetAtlasSource_kcoun")
+sources/3 = SubResource("TileSetAtlasSource_csv17")
+sources/4 = SubResource("TileSetAtlasSource_1kfie")
+sources/5 = SubResource("TileSetAtlasSource_p5qon")
+sources/6 = SubResource("TileSetAtlasSource_p3b6d")
+sources/7 = SubResource("TileSetAtlasSource_ff75x")
+sources/8 = SubResource("TileSetAtlasSource_lknxd")
+sources/9 = SubResource("TileSetAtlasSource_q8b24")
+sources/10 = SubResource("TileSetAtlasSource_wr3wg")
+sources/11 = SubResource("TileSetAtlasSource_8lpvs")
+sources/12 = SubResource("TileSetAtlasSource_sjh24")
+sources/13 = SubResource("TileSetAtlasSource_nqk4g")
+sources/16 = SubResource("TileSetAtlasSource_j0obb")
+sources/17 = SubResource("TileSetAtlasSource_jcn4n")
+sources/14 = SubResource("TileSetAtlasSource_lmoi6")
+sources/15 = SubResource("TileSetAtlasSource_tb272")
