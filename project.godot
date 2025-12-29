@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalScript="*res://Scripts/global_script.gd"
+TransitionLayer="*res://Scenes/transition_layer.tscn"
 
 [display]
 

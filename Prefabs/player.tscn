@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b75x50l03mdiv"]
+[gd_scene load_steps=37 format=3 uid="uid://b75x50l03mdiv"]
 
 [ext_resource type="Script" uid="uid://cl47ly3b7yhxn" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bglp72mjwtpfq" path="res://Assets/Characters/villager_male.png" id="2_juxdh"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dsldscn0cm3ey" path="res://Assets/Characters/character-asset.png" id="5_juxdh"]
 [ext_resource type="Texture2D" uid="uid://cn1h28cb3hnbb" path="res://Assets/Characters/character/jump-mask.png" id="6_3vpsw"]
 [ext_resource type="Texture2D" uid="uid://bx5504vujy8ni" path="res://Assets/Characters/character/mask-run.png" id="7_m62uw"]
+[ext_resource type="AudioStream" uid="uid://bdkwhh2178htj" path="res://Assets/Audio/31_Jump_04.wav" id="10_2xbkd"]
+[ext_resource type="AudioStream" uid="uid://doh5gekq7p1dg" path="res://Assets/Audio/09_Step_rock_03.wav" id="10_kgmex"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_405c5"]
 atlas = ExtResource("2_juxdh")
@@ -215,11 +217,13 @@ size = Vector2(6, 31)
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_cvnsp")
+sfx_jump = ExtResource("10_2xbkd")
+sfx_walk = ExtResource("10_kgmex")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_x3wgy")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -237,3 +241,10 @@ hit_from_inside = true
 position = Vector2(0, -28)
 target_position = Vector2(17.5, 0)
 hit_from_inside = true
+
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_2xbkd")
+bus = &"SFX"
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
