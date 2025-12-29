@@ -9,9 +9,11 @@ func _input(event: InputEvent) -> void:
 		if current_interactions:
 			can_interact = false;
 			interact_label.hide();
+			GlobalScript.isPause = true;
 			
 			await current_interactions[0].interact.call();
 			
+			GlobalScript.isPause = false;
 			can_interact = true;
 			
 
