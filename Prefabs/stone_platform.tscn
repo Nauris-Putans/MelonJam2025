@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://sxq6ojsvhqa2"]
+
+[ext_resource type="Texture2D" uid="uid://bvnmt1q63fwu1" path="res://Assets/Level2/Layer 1.png" id="1_iutei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln0gc"]
+size = Vector2(66, 18)
+
+[node name="StonePlatform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iutei")
+region_enabled = true
+region_rect = Rect2(175, 7, 66, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ln0gc")
+one_way_collision = true

@@ -8,11 +8,11 @@ var is_in_mask_anim = false;
 
 @onready var color_rect: ColorRect = $Game/Player/Camera2D/ColorRect
 @onready var player: CharacterBody2D = $Game/Player
-@onready var tile_map_layer: Node2D = $Game/EmoWorld
-@onready var tile_map_layer_2: Node2D = $Game/MemoryWorld
-@onready var parallax_background_2: ParallaxBackground = $Game/MemoryWorld/ParallaxBackground2
-@onready var parallax_background: ParallaxBackground = $Game/EmoWorld/ParallaxBackground
-
+@onready var tile_map_layer: Node2D 
+@onready var tile_map_layer_2: Node2D
+@onready var parallax_background_2: ParallaxBackground 
+@onready var parallax_background: ParallaxBackground 
+	
 
 var map1pos := Vector2(0, 0);
 var map2pos := Vector2(0, 0);
