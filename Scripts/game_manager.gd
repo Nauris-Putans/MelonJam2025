@@ -1,5 +1,8 @@
 extends Node
 	
+	
+signal toggle_overlay_requested(on_finished: Callable)
+
 var is_in_mask_anim = false;
 @export var is_mask_toggled = false;
 
@@ -7,6 +10,8 @@ var is_in_mask_anim = false;
 @onready var player: CharacterBody2D = $Game/Player
 @onready var tile_map_layer: Node2D = $Game/EmoWorld
 @onready var tile_map_layer_2: Node2D = $Game/MemoryWorld
+@onready var parallax_background_2: ParallaxBackground = $Game/MemoryWorld/ParallaxBackground2
+@onready var parallax_background: ParallaxBackground = $Game/EmoWorld/ParallaxBackground
 
 
 var map1pos := Vector2(0, 0);
@@ -15,7 +20,9 @@ var map2pos := Vector2(0, 0);
 func _ready() -> void:
 	map1pos = tile_map_layer.position;
 	map2pos = tile_map_layer_2.position;
-
+	
+	GlobalScript.toggleOvarlay = _bring_fadein;
+	toggle_overlay_requested.connect(_on_toggle_overlay_requested)
 	_update_maps();
 
 func _update_maps() -> void:
@@ -52,10 +59,14 @@ func _toggle_overlay():
 	if is_mask_toggled:
 		tile_map_layer.hide();
 		tile_map_layer_2.show();
+		parallax_background_2.show();
+		parallax_background.hide();
 		player.collision_mask = 2;
 	else:
 		tile_map_layer.show();
 		tile_map_layer_2.hide();
+		parallax_background_2.hide();
+		parallax_background.show();
 		player.collision_mask = 1;
 	
 	_update_maps();
@@ -69,3 +80,22 @@ func _toggle_overlay():
 		0.5
 	)
 	is_in_mask_anim = false;
+
+func _on_toggle_overlay_requested(on_finished: Callable) -> void:
+	if is_in_mask_anim:
+		return
+
+	is_mask_toggled = !is_mask_toggled
+	await _bring_fadein();
+
+	if on_finished.is_valid():
+		on_finished.call()
+
+func _bring_fadein() -> void:
+	is_in_mask_anim = true
+
+	var tween := create_tween()
+	tween.tween_property(color_rect, "color:a", 1.0, 0.5)
+	await tween.finished
+	
+	is_in_mask_anim = false

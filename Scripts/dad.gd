@@ -15,5 +15,7 @@ func _on_interact():
 		animation_player.play("new_animation");
 		await get_tree().create_timer(7).timeout;
 		animated_sprite_2d.flip_h = false;
-		await get_tree().create_timer(3).timeout;
-		get_tree().change_scene_to_file("res://Scenes/game.tscn");
+		await get_tree().create_timer(2).timeout;
+		await GlobalScript.toggleOvarlay.call();
+
+		get_tree().change_scene_to_file("res://Scenes/level-2.tscn");

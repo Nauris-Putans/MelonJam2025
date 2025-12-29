@@ -13,13 +13,21 @@ config_version=5
 config/name="TheMaskGame"
 run/main_scene="uid://djfp8r78lixmp"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.54901963, 0.56078434, 0.68235296, 1)
+boot_splash/image="uid://13lnukiatm36"
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalScript="*res://Scripts/global_script.gd"
 
 [display]
 
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 mouse_cursor/custom_image="uid://cr26f0cbneaj4"
+window/bg_color=Color(0.14, 0.14, 0.14, 1)
+window/image="uid://13lnukiatm36"
 
 [editor_plugins]
 

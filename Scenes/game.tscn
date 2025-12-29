@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://u6ayw2wukdhs"]
+[gd_scene load_steps=60 format=4 uid="uid://jadgofmdnix7"]
 
 [ext_resource type="Script" uid="uid://b2uytm0jnf8x8" path="res://Scripts/game_manager.gd" id="1_85qyi"]
 [ext_resource type="PackedScene" uid="uid://b75x50l03mdiv" path="res://Prefabs/player.tscn" id="1_ebmjs"]
@@ -23,8 +23,14 @@
 [ext_resource type="PackedScene" uid="uid://bbn8xmdepbvwc" path="res://Prefabs/wooden_platform_emo.tscn" id="21_exi56"]
 [ext_resource type="PackedScene" uid="uid://bbvwpx33gutwg" path="res://Prefabs/dad.tscn" id="22_fkdbe"]
 [ext_resource type="Script" uid="uid://bqtud6ctnkj8o" path="res://Scripts/home_trigger.gd" id="22_mg4q0"]
+[ext_resource type="Texture2D" uid="uid://88j1v32r1m45" path="res://Assets/background/Sprite-0001.png" id="23_8m3t6"]
 [ext_resource type="TileSet" uid="uid://da74eruyegj1d" path="res://Scenes/game.tres" id="23_22asu"]
 [ext_resource type="PackedScene" uid="uid://ce2qx1gtu7dsi" path="res://Prefabs/interactable.tscn" id="23_vm72l"]
+[ext_resource type="Texture2D" uid="uid://bekl03ud41l33" path="res://Assets/background/Enjl-Starry Space Background/background_1.png" id="26_fkdbe"]
+[ext_resource type="Texture2D" uid="uid://5nf41b2qrkp" path="res://Assets/background/Enjl-Starry Space Background/background_2.png" id="27_mucmn"]
+[ext_resource type="Texture2D" uid="uid://cbtqd2qde0nxp" path="res://Assets/background/Enjl-Starry Space Background/background_3.png" id="28_8m3t6"]
+[ext_resource type="Texture2D" uid="uid://blv5f6wmyax5g" path="res://Assets/background/Enjl-Starry Space Background/background_4.png" id="29_ese38"]
+[ext_resource type="Texture2D" uid="uid://p324ga72j30q" path="res://Assets/background/Sprite-0001-export.png" id="30_oeip8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_exi56"]
 shader = ExtResource("3_7nbq1")
@@ -432,8 +438,6 @@ radius = 106.04244
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkdbe"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_22asu"]
-
 [node name="Game" type="Node"]
 script = ExtResource("1_85qyi")
 
@@ -456,6 +460,7 @@ offset_bottom = 302.5
 color = Color(0.09019608, 0.2627451, 0.29411766, 0)
 
 [node name="MemoryWorld" type="Node2D" parent="Game"]
+visible = false
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Game/MemoryWorld"]
 material = SubResource("ShaderMaterial_exi56")
@@ -495,6 +500,85 @@ autoplay = "new_animation"
 [node name="Dada" parent="Game/MemoryWorld" instance=ExtResource("22_fkdbe")]
 position = Vector2(2345, -32)
 scale = Vector2(2, 2)
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="Game/MemoryWorld"]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Game/MemoryWorld/ParallaxBackground2"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/MemoryWorld/ParallaxBackground2/ParallaxLayer"]
+texture = ExtResource("23_8m3t6")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Game/MemoryWorld/ParallaxBackground2"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/MemoryWorld/ParallaxBackground2/ParallaxLayer2"]
+texture = ExtResource("26_fkdbe")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Game/MemoryWorld/ParallaxBackground2"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(256, 0)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/MemoryWorld/ParallaxBackground2/ParallaxLayer3"]
+texture = ExtResource("26_fkdbe")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Game/MemoryWorld/ParallaxBackground2"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/MemoryWorld/ParallaxBackground2/ParallaxLayer4"]
+texture = ExtResource("27_mucmn")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Game/MemoryWorld/ParallaxBackground2"]
+motion_scale = Vector2(0.4, 0.4)
+motion_offset = Vector2(256, 0)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/MemoryWorld/ParallaxBackground2/ParallaxLayer5"]
+texture = ExtResource("27_mucmn")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="Game/MemoryWorld/ParallaxBackground2"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/MemoryWorld/ParallaxBackground2/ParallaxLayer6"]
+texture = ExtResource("28_8m3t6")
+centered = false
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="Game/MemoryWorld/ParallaxBackground2"]
+motion_scale = Vector2(0.6, 0.6)
+motion_offset = Vector2(256, 0)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/MemoryWorld/ParallaxBackground2/ParallaxLayer7"]
+texture = ExtResource("28_8m3t6")
+centered = false
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="Game/MemoryWorld/ParallaxBackground2"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/MemoryWorld/ParallaxBackground2/ParallaxLayer8"]
+texture = ExtResource("29_ese38")
+centered = false
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="Game/MemoryWorld/ParallaxBackground2"]
+motion_scale = Vector2(0.8, 0.8)
+motion_offset = Vector2(256, 0)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/MemoryWorld/ParallaxBackground2/ParallaxLayer9"]
+texture = ExtResource("29_ese38")
+centered = false
 
 [node name="EmoWorld" type="Node2D" parent="Game"]
 
@@ -546,10 +630,80 @@ shape = SubResource("CircleShape2D_22asu")
 position = Vector2(31, 10)
 shape = SubResource("RectangleShape2D_fkdbe")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Game/EmoWorld"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(576, 320)
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Game/EmoWorld/ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1920, 1080)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = SubResource("CompressedTexture2D_22asu")
+[node name="Sprite2D" type="Sprite2D" parent="Game/EmoWorld/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("30_oeip8")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Game/EmoWorld/ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/EmoWorld/ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("26_fkdbe")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Game/EmoWorld/ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(256, 0)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/EmoWorld/ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("26_fkdbe")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Game/EmoWorld/ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/EmoWorld/ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("27_mucmn")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Game/EmoWorld/ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_offset = Vector2(256, 0)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/EmoWorld/ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource("27_mucmn")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="Game/EmoWorld/ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/EmoWorld/ParallaxBackground/ParallaxLayer6"]
+texture = ExtResource("28_8m3t6")
+centered = false
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="Game/EmoWorld/ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_offset = Vector2(256, 0)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/EmoWorld/ParallaxBackground/ParallaxLayer7"]
+texture = ExtResource("28_8m3t6")
+centered = false
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="Game/EmoWorld/ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/EmoWorld/ParallaxBackground/ParallaxLayer8"]
+texture = ExtResource("29_ese38")
+centered = false
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="Game/EmoWorld/ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_offset = Vector2(256, 0)
+motion_mirroring = Vector2(512, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/EmoWorld/ParallaxBackground/ParallaxLayer9"]
+texture = ExtResource("29_ese38")
+centered = false
