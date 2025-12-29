@@ -20,6 +20,7 @@ func _ready() -> void:
 	sfx_player.stream = null;
 
 func _physics_process(delta: float) -> void:
+	if GlobalScript.isPause: return;
 	_check_ledge_grab();
 	
 	# Add the gravity.

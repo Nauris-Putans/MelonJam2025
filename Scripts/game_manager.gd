@@ -6,6 +6,7 @@ signal toggle_overlay_requested(on_finished: Callable)
 var is_in_mask_anim = false;
 @export var is_mask_toggled = false;
 
+var UI_profile: AnimatedSprite2D;
 @onready var color_rect: ColorRect = $Game/Player/Camera2D/ColorRect
 @onready var player: CharacterBody2D = $Game/Player
 @onready var tile_map_layer: Node2D 
@@ -37,11 +38,13 @@ func _update_maps() -> void:
 
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("toggle_mask"):
+	if Input.is_action_just_pressed("toggle_mask") && GlobalScript.canWearMask:
 		is_mask_toggled = !is_mask_toggled;
+		_update_ui();
 		_toggle_overlay();
 
-	
+func _update_ui():
+	pass
 		
 func _toggle_overlay():
 	is_in_mask_anim = true;
@@ -61,12 +64,14 @@ func _toggle_overlay():
 		tile_map_layer_2.show();
 		parallax_background_2.show();
 		parallax_background.hide();
+		UI_profile.play("Masked_face");
 		player.collision_mask = 2;
 	else:
 		tile_map_layer.show();
 		tile_map_layer_2.hide();
 		parallax_background_2.hide();
 		parallax_background.show();
+		UI_profile.play("default");
 		player.collision_mask = 1;
 	
 	_update_maps();

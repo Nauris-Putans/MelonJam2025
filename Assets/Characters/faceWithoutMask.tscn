@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqtsuiasqhv4o"]
+
+[ext_resource type="Texture2D" uid="uid://dr5isv6rtlrxt" path="res://Assets/Characters/mask-and-face-ui-asset.png" id="1_jqrc2"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_jqrc2")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)

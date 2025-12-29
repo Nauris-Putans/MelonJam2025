@@ -41,7 +41,7 @@ size = Vector2(28, 20)
 script = ExtResource("1_yaanm")
 
 [node name="Interactable" parent="." instance=ExtResource("2_kbimj")]
-interact_name = "[E]"
+interact_name = "[E] Open chest"
 is_interactable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
