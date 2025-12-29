@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmsfsdmi6q5xs"]
+
+[ext_resource type="Texture2D" uid="uid://lt2otccci4c5" path="res://Assets/Level3/level2.png" id="1_2vy2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym3k2"]
+size = Vector2(48, 48)
+
+[node name="Bell" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_2vy2m")
+region_enabled = true
+region_rect = Rect2(160, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_ym3k2")

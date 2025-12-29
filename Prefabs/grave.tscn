@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://h8vkyvwuyjlh"]
+
+[ext_resource type="Texture2D" uid="uid://b00iemcexhs5n" path="res://Assets/Level3/level2.png" id="1_00t38"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Grave" type="Sprite2D" parent="."]
+position = Vector2(-3, -33)
+scale = Vector2(2, 2)
+texture = ExtResource("1_00t38")
+region_enabled = true
+region_rect = Rect2(223, 160, 32, 32)

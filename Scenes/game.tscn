@@ -689,11 +689,10 @@ profile = NodePath("CanvasLayer/GUI/AnimatedSprite2D")
 
 [node name="Player" parent="Game" instance=ExtResource("1_ebmjs")]
 z_index = 5
-position = Vector2(2491, -1883)
 collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Game/Player"]
-position = Vector2(0.5, -29)
+position = Vector2(0, -29)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
