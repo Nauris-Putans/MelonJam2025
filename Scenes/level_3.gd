@@ -10,3 +10,5 @@ func _ready() -> void:
 	tile_map_layer_2 = memory_world
 	parallax_background_2 = memory_world_parallax_background_2
 	parallax_background = destroyed_world_parallax_background
+	GlobalScript.canWearMask = true;
+	GlobalScript.hasMask = true;

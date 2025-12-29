@@ -1,0 +1,147 @@
+[gd_scene load_steps=13 format=3 uid="uid://ejf3cs685f50"]
+
+[ext_resource type="Script" uid="uid://mtcdq32nh78i" path="res://Scripts/papa.gd" id="1_ivew7"]
+[ext_resource type="Texture2D" uid="uid://d3lvgwse86anp" path="res://Assets/Characters/NPC/Layer 1.png" id="2_twrhu"]
+[ext_resource type="PackedScene" uid="uid://ce2qx1gtu7dsi" path="res://Prefabs/interactable.tscn" id="3_b51im"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_224wv"]
+size = Vector2(8, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivew7"]
+atlas = ExtResource("2_twrhu")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twrhu"]
+atlas = ExtResource("2_twrhu")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b51im"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivew7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twrhu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_085hp"]
+radius = 28.01785
+
+[sub_resource type="LabelSettings" id="LabelSettings_085hp"]
+line_spacing = 5.0
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_1d15l"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5883914, 2.0043988, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.5294638, 0.5294638, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Your found the shovel! Can you help me to dig that ground?"]
+}
+
+[sub_resource type="Animation" id="Animation_2gp0d"]
+resource_name = "new_animation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.67, 2.0098014, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.5566667, 0.5566667, 1.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Your found the shovel! Can you help me to dig that ground?", "Your found the shovel! Can you help me to dig that ground?", "Your found the shovel! Can you help me to dig that ground?"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15ipd"]
+_data = {
+&"RESET": SubResource("Animation_1d15l"),
+&"new_animation": SubResource("Animation_2gp0d")
+}
+
+[node name="Lover" type="CharacterBody2D"]
+script = ExtResource("1_ivew7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_224wv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b51im")
+autoplay = "default"
+flip_h = true
+
+[node name="Interactable" parent="." instance=ExtResource("3_b51im")]
+interact_name = "[E] Talk with Priest"
+is_interactable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CircleShape2D_085hp")
+
+[node name="hello" type="Label" parent="."]
+z_index = 6
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -41.0
+offset_right = 283.0
+offset_bottom = -3.1052551
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.475, 0.475)
+size_flags_horizontal = 3
+text = "Your found the shovel! Can you help me to dig that ground?"
+label_settings = SubResource("LabelSettings_085hp")
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hello"]
+libraries = {
+&"": SubResource("AnimationLibrary_15ipd")
+}
+
+[node name="Chat" type="Node" parent="."]

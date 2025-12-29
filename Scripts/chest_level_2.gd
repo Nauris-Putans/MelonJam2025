@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var mask_tutorial_anim: AnimationPlayer;
+@export var mask_lvl2_anim: AnimationPlayer;
 @onready var interactable: Area2D = $Interactable
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -13,9 +13,9 @@ func _on_interact():
 		animated_sprite_2d.play("open");
 		GlobalScript.hasMask = true;
 		GlobalScript.canWearMask = true;
-		if mask_tutorial_anim:
-			mask_tutorial_anim.play("mask_tutorial");
+		if mask_lvl2_anim:
+			mask_lvl2_anim.play("lover");
 		
-		await mask_tutorial_anim.animation_finished;
+		await mask_lvl2_anim.animation_finished;
 		interactable.is_interactable = false;
 		

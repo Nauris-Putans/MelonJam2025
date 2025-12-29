@@ -64,14 +64,17 @@ func _toggle_overlay():
 		tile_map_layer_2.show();
 		parallax_background_2.show();
 		parallax_background.hide();
-		UI_profile.play("Masked_face");
+		if UI_profile != null:
+			UI_profile.play("Masked_face");
 		player.collision_mask = 2;
 	else:
 		tile_map_layer.show();
 		tile_map_layer_2.hide();
 		parallax_background_2.hide();
 		parallax_background.show();
-		UI_profile.play("default");
+		
+		if UI_profile != null:
+			UI_profile.play("default");
 		player.collision_mask = 1;
 	
 	_update_maps();
