@@ -12,4 +12,3 @@ func _on_interact():
 	if animated_sprite_2d.frame == 0:
 		animated_sprite_2d.play("open");
 		interactable.is_interactable = false;
-		print("Player gayed");

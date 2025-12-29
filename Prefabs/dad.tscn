@@ -53,6 +53,34 @@ line_spacing = 5.0
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_1d15l"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5883914, 2.0043988, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.5294638, 0.5294638, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Oh Son! you found my memory mask!
+It reminds me old times..."]
+}
+
 [sub_resource type="Animation" id="Animation_2gp0d"]
 resource_name = "new_animation"
 length = 8.0
@@ -84,34 +112,6 @@ It reminds me old times...", "Oh Son! you found my memory mask!
 It reminds me old times...", "It is getting late! Time to sleep...", "It is getting late! Time to sleep..."]
 }
 
-[sub_resource type="Animation" id="Animation_1d15l"]
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5883914, 2.0043988, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.5294638, 0.5294638, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Oh Son! you found my memory mask!
-It reminds me old times..."]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_15ipd"]
 _data = {
 &"RESET": SubResource("Animation_1d15l"),
@@ -132,7 +132,7 @@ autoplay = "default"
 flip_h = true
 
 [node name="Interactable" parent="." instance=ExtResource("2_224wv")]
-interact_name = "[E] Sex Dad"
+interact_name = "[E] Talk with Dad"
 is_interactable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
