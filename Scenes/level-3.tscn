@@ -428,45 +428,6 @@ sources/14 = SubResource("TileSetAtlasSource_aav17")
 sources/15 = SubResource("TileSetAtlasSource_357ve")
 sources/19 = SubResource("TileSetAtlasSource_27t5n")
 
-[sub_resource type="Animation" id="Animation_mia7d"]
-resource_name = "shovel"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Game/DestroyedWorld/Label:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Game/DestroyedWorld/Label:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Game/MemoryWorld/MemoryWorldTileMapMid/Papa:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2416, -34)]
-}
-
 [sub_resource type="Animation" id="Animation_g0emp"]
 length = 0.001
 tracks/0/type = "value"
@@ -504,6 +465,45 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(2808, -37)]
+}
+
+[sub_resource type="Animation" id="Animation_mia7d"]
+resource_name = "shovel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game/DestroyedWorld/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Game/DestroyedWorld/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Game/MemoryWorld/MemoryWorldTileMapMid/Papa:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2416, -34)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ems8"]
@@ -886,7 +886,7 @@ text = "You Found a Shovel!"
 
 [node name="Player" parent="Game" instance=ExtResource("1_fe8wy")]
 z_index = 640
-position = Vector2(1312, -1290)
+position = Vector2(10, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Game/Player"]
 position = Vector2(0, -29)

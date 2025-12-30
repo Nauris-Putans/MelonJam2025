@@ -698,7 +698,6 @@ script = ExtResource("1_85qyi")
 
 [node name="Player" parent="Game" instance=ExtResource("1_ebmjs")]
 z_index = 5
-position = Vector2(2536, -1888)
 collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Game/Player"]
