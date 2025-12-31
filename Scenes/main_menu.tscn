@@ -43,11 +43,11 @@ region_rect = Rect2(352, 96, 32, 32)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_16hvj"]
 texture = ExtResource("7_yhxw7")
-region_rect = Rect2(384, 64, 32, 32)
+region_rect = Rect2(448, 0, 32, 32)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8dnnj"]
 texture = ExtResource("7_yhxw7")
-region_rect = Rect2(416, 64, 32, 32)
+region_rect = Rect2(479, 0, 33, 32)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yhxw7"]
 font_size = 120
@@ -207,7 +207,6 @@ mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_vr1f0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_t1dhk")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vr1f0")
-script = ExtResource("9_t1dhk")
 
 [node name="HelpButton" type="Button" parent="."]
 layout_mode = 1

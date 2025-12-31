@@ -18,4 +18,4 @@ func _on_interact():
 		await get_tree().create_timer(2).timeout;
 		await GlobalScript.toggleOvarlay.call();
 
-		TransitionLayer.change_scene("res://Scenes/level-3.tscn");
+		TransitionLayer.change_scene("res://Scenes/outro.tscn");
