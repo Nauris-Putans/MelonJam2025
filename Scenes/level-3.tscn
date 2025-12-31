@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://3b1ufifcgrk8"]
+[gd_scene load_steps=74 format=4 uid="uid://3b1ufifcgrk8"]
 
 [ext_resource type="TileSet" uid="uid://da74eruyegj1d" path="res://Scenes/game.tres" id="1_4ph04"]
 [ext_resource type="PackedScene" uid="uid://b75x50l03mdiv" path="res://Prefabs/player.tscn" id="1_fe8wy"]
@@ -21,6 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://b1ew6tc6bo5yb" path="res://Prefabs/chest_level3.tscn" id="19_g0emp"]
 [ext_resource type="PackedScene" uid="uid://ejf3cs685f50" path="res://Prefabs/papa.tscn" id="20_3ems8"]
 [ext_resource type="PackedScene" uid="uid://cxcijgcyr1ph7" path="res://Prefabs/church_wood_platform.tscn" id="20_mia7d"]
+[ext_resource type="Theme" uid="uid://2d5kp8rfe5xb" path="res://Assets/UI/mask_theme.tres" id="22_m3t4i"]
+[ext_resource type="Texture2D" uid="uid://dr5isv6rtlrxt" path="res://Assets/Characters/mask-and-face-ui-asset.png" id="23_1of4j"]
+[ext_resource type="Texture2D" uid="uid://docswhq1yhhk7" path="res://Assets/UI/cursor-click-asset.png" id="24_8sjv3"]
+[ext_resource type="Texture2D" uid="uid://cl3wwub4pok5v" path="res://Assets/UI/ui-assets.png" id="25_xsdaf"]
+[ext_resource type="PackedScene" uid="uid://hufx4yury51t" path="res://Scenes/settings.tscn" id="26_eiqgy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nfbqa"]
 shader = ExtResource("8_lmqfg")
@@ -512,8 +517,60 @@ _data = {
 &"shovel": SubResource("Animation_mia7d")
 }
 
-[node name="Level3" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_exi56"]
+atlas = ExtResource("23_1of4j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t8sx"]
+atlas = ExtResource("23_1of4j")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg4q0"]
+atlas = ExtResource("23_1of4j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36dye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exi56")
+}],
+"loop": true,
+"name": &"Masked_face",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t8sx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg4q0")
+}],
+"loop": true,
+"name": &"mask",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aav17"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_357ve"]
+texture = ExtResource("25_xsdaf")
+region_rect = Rect2(320, 128, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q0bf6"]
+texture = ExtResource("25_xsdaf")
+region_rect = Rect2(352, 128, 32, 32)
+
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("profile_ui")]
 script = ExtResource("1_u35u0")
+profile_ui = NodePath("CanvasLayer/GUI/AnimatedSprite2D")
 
 [node name="Game" type="Node2D" parent="."]
 
@@ -905,3 +962,55 @@ color = Color(0.09019608, 0.2627451, 0.29411766, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_3ems8")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+z_index = 2501
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("22_m3t4i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/GUI"]
+position = Vector2(70, 575)
+scale = Vector2(4.4375, 4.4375)
+sprite_frames = SubResource("SpriteFrames_36dye")
+animation = &"Masked_face"
+autoplay = "default"
+
+[node name="Label" type="Label" parent="CanvasLayer/GUI"]
+layout_mode = 0
+offset_left = 116.99999
+offset_top = 591.00006
+offset_right = 140.01587
+offset_bottom = 607.9842
+scale = Vector2(3.5, 3.5)
+text = "[F]"
+label_settings = SubResource("LabelSettings_aav17")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(154.99997, 494.99994)
+rotation = -2.2417192
+scale = Vector2(3.9117646, 3.9117646)
+texture = ExtResource("24_8sjv3")
+
+[node name="SettingButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -87.0
+offset_bottom = 87.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_357ve")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q0bf6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_357ve")
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("26_eiqgy")]
+
+[connection signal="pressed" from="CanvasLayer/SettingButton" to="." method="_on_setting_button_pressed"]

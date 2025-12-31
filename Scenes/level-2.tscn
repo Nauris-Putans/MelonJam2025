@@ -1,10 +1,10 @@
-[gd_scene load_steps=56 format=4 uid="uid://dl5seikrrlyfl"]
+[gd_scene load_steps=68 format=4 uid="uid://dl5seikrrlyfl"]
 
 [ext_resource type="PackedScene" uid="uid://b75x50l03mdiv" path="res://Prefabs/player.tscn" id="1_jrqqw"]
 [ext_resource type="Script" uid="uid://cipgm2allx5dy" path="res://Scenes/level_2.gd" id="1_vuhrq"]
 [ext_resource type="TileSet" uid="uid://da74eruyegj1d" path="res://Scenes/game.tres" id="2_koo5p"]
 [ext_resource type="Shader" uid="uid://b8muvap6jrt68" path="res://Scenes/game.gdshader" id="3_fjiq8"]
-[ext_resource type="PackedScene" uid="uid://e4bphpqulsk7" path="res://Prefabs/stone_memory_platform.tscn" id="4_0787j"]
+[ext_resource type="PackedScene" path="res://Prefabs/stone_memory_platform.tscn" id="4_0787j"]
 [ext_resource type="Texture2D" uid="uid://cf4ka7lslfhd4" path="res://Assets/House/house-asset.png" id="4_dtk1r"]
 [ext_resource type="PackedScene" uid="uid://cxovghcd36kv4" path="res://Prefabs/lover.tscn" id="5_fxita"]
 [ext_resource type="Texture2D" uid="uid://bvnmt1q63fwu1" path="res://Assets/Level2/Layer 1.png" id="5_vuhrq"]
@@ -16,6 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://sxq6ojsvhqa2" path="res://Prefabs/stone_platform.tscn" id="11_c5vrt"]
 [ext_resource type="Texture2D" uid="uid://p324ga72j30q" path="res://Assets/background/Sprite-0001-export.png" id="11_dsj4o"]
 [ext_resource type="PackedScene" uid="uid://s8akgm6puy6q" path="res://Prefabs/chest_level2.tscn" id="13_fxita"]
+[ext_resource type="Theme" uid="uid://2d5kp8rfe5xb" path="res://Assets/UI/mask_theme.tres" id="17_vf3td"]
+[ext_resource type="Texture2D" uid="uid://dr5isv6rtlrxt" path="res://Assets/Characters/mask-and-face-ui-asset.png" id="18_kxfcg"]
+[ext_resource type="Texture2D" uid="uid://docswhq1yhhk7" path="res://Assets/UI/cursor-click-asset.png" id="19_sikbw"]
+[ext_resource type="Texture2D" uid="uid://cl3wwub4pok5v" path="res://Assets/UI/ui-assets.png" id="20_rppqa"]
+[ext_resource type="PackedScene" uid="uid://hufx4yury51t" path="res://Scenes/settings.tscn" id="21_ibdvn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vuhrq"]
 shader = ExtResource("3_fjiq8")
@@ -504,8 +509,60 @@ _data = {
 &"lover": SubResource("Animation_dsj4o")
 }
 
-[node name="Level2" type="Node"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_exi56"]
+atlas = ExtResource("18_kxfcg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t8sx"]
+atlas = ExtResource("18_kxfcg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg4q0"]
+atlas = ExtResource("18_kxfcg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8gfbg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exi56")
+}],
+"loop": true,
+"name": &"Masked_face",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t8sx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg4q0")
+}],
+"loop": true,
+"name": &"mask",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eo1b3"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o83or"]
+texture = ExtResource("20_rppqa")
+region_rect = Rect2(320, 128, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rswu3"]
+texture = ExtResource("20_rppqa")
+region_rect = Rect2(352, 128, 32, 32)
+
+[node name="Level2" type="Node" node_paths=PackedStringArray("profile_ui")]
 script = ExtResource("1_vuhrq")
+profile_ui = NodePath("CanvasLayer/GUI/AnimatedSprite2D")
 
 [node name="Game" type="Node2D" parent="."]
 
@@ -814,3 +871,55 @@ color = Color(0.09019608, 0.2627451, 0.29411766, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_4nh5u")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+z_index = 2501
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_vf3td")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/GUI"]
+position = Vector2(70, 575)
+scale = Vector2(4.4375, 4.4375)
+sprite_frames = SubResource("SpriteFrames_8gfbg")
+animation = &"Masked_face"
+autoplay = "default"
+
+[node name="Label" type="Label" parent="CanvasLayer/GUI"]
+layout_mode = 0
+offset_left = 116.99999
+offset_top = 591.00006
+offset_right = 140.01587
+offset_bottom = 607.9842
+scale = Vector2(3.5, 3.5)
+text = "[F]"
+label_settings = SubResource("LabelSettings_eo1b3")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(154.99997, 494.99994)
+rotation = -2.2417192
+scale = Vector2(3.9117646, 3.9117646)
+texture = ExtResource("19_sikbw")
+
+[node name="SettingButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -87.0
+offset_bottom = 87.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_o83or")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rswu3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o83or")
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("21_ibdvn")]
+
+[connection signal="pressed" from="CanvasLayer/SettingButton" to="." method="_on_setting_button_pressed"]

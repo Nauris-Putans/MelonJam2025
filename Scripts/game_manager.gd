@@ -7,7 +7,7 @@ var is_in_mask_anim = false;
 @export var is_mask_toggled = false;
 
 var UI_profile: AnimatedSprite2D;
-@onready var color_rect: ColorRect = $Game/Player/Camera2D/ColorRect
+@onready var color_rect: ColorRect = $Game/Player/Camera2D/ColorRect;
 @onready var player: CharacterBody2D = $Game/Player
 @onready var tile_map_layer: Node2D 
 @onready var tile_map_layer_2: Node2D
@@ -64,6 +64,7 @@ func _toggle_overlay():
 		tile_map_layer_2.show();
 		parallax_background_2.show();
 		parallax_background.hide();
+		
 		if UI_profile != null:
 			UI_profile.play("Masked_face");
 		player.collision_mask = 2;

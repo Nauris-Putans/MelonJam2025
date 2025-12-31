@@ -635,7 +635,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_vm72l"]
 resource_name = "mask_tutorial"
-length = 5.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -691,13 +691,15 @@ _data = {
 &"mask_tutorial": SubResource("Animation_vm72l")
 }
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" node_paths=PackedStringArray("profile")]
 script = ExtResource("1_85qyi")
+profile = NodePath("CanvasLayer/GUI/AnimatedSprite2D")
 
 [node name="Game" type="Node2D" parent="."]
 
 [node name="Player" parent="Game" instance=ExtResource("1_ebmjs")]
 z_index = 5
+position = Vector2(86, 0)
 collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Game/Player"]
@@ -707,10 +709,10 @@ position_smoothing_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="Game/Player/Camera2D"]
 z_index = 4096
-offset_left = -386.5
-offset_top = -231.0
-offset_right = 362.5
-offset_bottom = 302.5
+offset_left = -365.5
+offset_top = -269.5
+offset_right = 383.5
+offset_bottom = 264.0
 color = Color(0.09019608, 0.2627451, 0.29411766, 0)
 
 [node name="MemoryWorld" type="Node2D" parent="Game"]

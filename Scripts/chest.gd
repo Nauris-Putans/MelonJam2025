@@ -16,6 +16,5 @@ func _on_interact():
 		if mask_tutorial_anim:
 			mask_tutorial_anim.play("mask_tutorial");
 		
-		await mask_tutorial_anim.animation_finished;
 		interactable.is_interactable = false;
 		
