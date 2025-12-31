@@ -2,7 +2,7 @@
 
 **Memory Lane** is a short 2D pixel-art platformer created for **Winter Melon Game Jam 2025** in **72 hours**.
 
-![Memory Lane](Assets\Cover\cover-image.png)
+![Memory Lane](https://github.com/Nauris-Putans/MelonJam2025/blob/master/Assets/Cover/cover-image.png)
 
 The game follows a man who finds himself lost in a strange place, trying to make sense of what’s happening — only to discover that the truth waiting at the end is far from comforting.
 
@@ -26,7 +26,7 @@ As the player advances, the atmosphere slowly shifts, revealing that not everyth
 
 - **Engine:** Godot
 - **Art:** Aseprite
-- **Platform:** HTML5 (Web)
+- **Platform:** HTML5 (Web), Windows
 
 ---
 
@@ -34,7 +34,7 @@ As the player advances, the atmosphere slowly shifts, revealing that not everyth
 
 - **Jam:** Winter Melon Game Jam 2025
 - **Time Limit:** 72 hours
-- **Team Size:** 2 (me and c4m3lion)
+- **Team Size:** 2 ([papaSmurf24](https://itch.io/profile/papasmurf24) and [c4m3lion](https://itch.io/profile/c4m3lion))
 
 This project was built entirely within the jam timeframe, prioritizing atmosphere, storytelling, and a complete playable experience.
 
